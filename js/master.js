@@ -1,3 +1,24 @@
+$(document).ready(function() {
+  $("form").submit(function(event) {
+    var messageInput =$("input#pigLatin-input").val();
+    var result = pigLatinSentence(messageInput);
+    $("#result").text(result);
+    $("#result").show();
+    event.preventDefault();
+  });
+});
+
+function pigLatinSentence (sentence){
+  sentence = sentence.split(" ");
+  // console.log(sentence);
+  sentence.forEach(function(e){
+    e = pigLatin(e);
+    console.log(e);
+    $('#result').append(e + ' ');
+  });
+
+}
+
 function vowelDector(char){
   var vowels = ['a','e','i','o','u','A', 'E', 'I', 'O', 'U'];
   for(var i = 0; i < vowels.length; i++){
@@ -25,12 +46,10 @@ function consDector(char) {
 }
 
 function pigLatin(word){
-
   word = word.split("");
-  //console.log(word);
   var arr = [];
   for (var i = 0; i< word.length; i++){
-    console.log(word[i]);
+    // console.log(word[i]);
     if(vowelDector(word[i])){
       break;
     }else if (consDector(word[i])){
@@ -42,13 +61,9 @@ function pigLatin(word){
       }
     }
   }
-  //console.log(arr);
   for (var i = 0; i < arr.length; i++) {
     word.push(arr[i]);
     word.shift();
   }
-  // console.log(word);
-  // console.log(addAy(word.join('')));
   return addAy(word.join(''));
-  // return word.join('');
 }
