@@ -8,6 +8,9 @@ describe('consAy',function(){
   it("Will add first consecutive consonants to end of the word & add 'ay'",function(){
     expect(consAy("starbucks")).to.equal("arbucksstay");
   });
+  it("Will add first consecutive consonants to end of the word & add 'ay'",function(){
+    expect(consAy("squeal")).to.equal("ealsquay");
+  });
 });
 
 describe('vowelDector',function(){
