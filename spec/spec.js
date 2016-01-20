@@ -4,12 +4,15 @@ describe('addAy',function(){
   });
 });
 
-describe('consAy',function(){
+describe('pigLatin',function(){
   it("Will add first consecutive consonants to end of the word & add 'ay'",function(){
-    expect(consAy("starbucks")).to.equal("arbucksstay");
+    expect(pigLatin("starbucks")).to.equal("arbucksstay");
   });
   it("Will add first consecutive consonants to end of the word & add 'ay'",function(){
-    expect(consAy("squeal")).to.equal("ealsquay");
+    expect(pigLatin("squeal")).to.equal("ealsquay");
+  });
+  it("Will detect words that start with vowels and return 'ay'",function(){
+    expect(pigLatin("open")).to.equal("openay");
   });
 });
 
