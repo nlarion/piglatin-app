@@ -20,13 +20,11 @@ function pigLatinSentence (sentence){
 }
 
 function vowelDector(char){
-  var vowels = ['a','e','i','o','u','A', 'E', 'I', 'O', 'U'];
-  for(var i = 0; i < vowels.length; i++){
-    if(char.charAt(0).toString() == vowels[i].toString()){
-      return true;
-    }
+  if (char.match(/[aeiouAEIOU]/)){
+    return true;
+  } else {
+    return false;
   }
-  return false;
 }
 
 function addAy(word){
@@ -36,25 +34,14 @@ function addAy(word){
   }
 }
 
-function consDector(char) {
-  var consonants = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z','B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z'];
-  for (var i = 0; i < consonants.length; i++) {
-    if(char.charAt(0).toString() == consonants[i].toString()){
-      return true;
-    }
-  }
-}
-
 function pigLatin(word){
   word = word.split("");
   var arr = [];
   for (var i = 0; i< word.length; i++){
-    // console.log(word[i]);
     if(vowelDector(word[i])){
       break;
-    }else if (consDector(word[i])){
-      // console.log(word[i]);
-      if(word[i].toString()==='q' && word[i+1].toString() === 'u'){
+    } else {
+      if(word[i]==='q' && word[i+1] === 'u'){
         arr.push(word[i],word[i+1]);
       }else{
         arr.push(word[i]);
